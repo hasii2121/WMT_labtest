@@ -6,6 +6,7 @@ function ItemForm({ initialValues, onSubmit, submitText }) {
       name: "",
       category: "",
       price: "",
+      manufactureCountry: "",
       description: "",
       imageUrl: "",
     }
@@ -21,7 +22,7 @@ function ItemForm({ initialValues, onSubmit, submitText }) {
     onSubmit({
       ...formData,
       price: Number(formData.price),
-      discountPercentage: Number(formData.discountPercentage),
+      manufactureCountry: formData.manufactureCountry 
     });
   };
 
@@ -43,15 +44,8 @@ function ItemForm({ initialValues, onSubmit, submitText }) {
         onChange={handleChange}
         required
       />
-      <label>Discount Percentage</label>
-      <input
-        type="number"
-        name="discountPercentage"
-        value={formData.discountPercentage}
-        onChange={handleChange}
-        min="0"
-        max="100"
-      />
+      <label>Manufacture Country</label>
+      <input name="manufactureCountry" value={formData.manufactureCountry} onChange={handleChange} />
 
       <label>Description</label>
       <textarea
